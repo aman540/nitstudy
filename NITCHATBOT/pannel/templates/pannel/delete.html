@@ -1,0 +1,11 @@
+{% extends 'pannel/main.html' %} {% block title %} DELETE {% endblock title %} {% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{obj}}"?</p>
+        <a href="{% url 'home'%}">CANCLE </a>
+        <input type="Submit" value="Confirm">
+    </form>
+</div>
+<!-- {{request.META.HTTP.REFERER}} -->
+{% endblock content %}
