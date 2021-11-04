@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %} NIT JSR CHAT BOT | {% endblock title %}
-    </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'styles/assets/fa'%}vicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/style.css'%}" />
+    <title>NITJSR -Let's connect!!</title>
 </head>
 
 <body>
-    <h1><a href="\">LOGO</a></h1>
-    <form action="{% url 'home'%}" method="GET">
-        <input type="text" name="q" placeholder="Search">
-    </form>
-    {% if request.user.is_authenticated %}
-    <p>Hello {{request.user}}</p>
-    <a href="{% url 'logout' %}">logout</a> {%else%}
-    <a href="{% url 'login' %}">Login</a> {%endif%}
-    <div>
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </div>
-    <hr> {% block content %} {% endblock content %}
 
+    {% include 'pannel/navbar.html' %} {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock content %}
+
+    <script src="{% static 'js/script.js'%}"></script>
 </body>
 
 </html>

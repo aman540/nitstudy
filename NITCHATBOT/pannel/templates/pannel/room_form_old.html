@@ -1,0 +1,12 @@
+{% extends 'pannel/main.html' %} {% block title %} ROOM FORM {% endblock title %} {% block content %}
+<h1>room_form</h1>
+
+<div>
+    <form action="" method="POSt">
+        {% csrf_token %} {{form.as_p}}
+        <input type="Submit" value="submit">
+    </form>
+</div>
+
+
+{% endblock content %}

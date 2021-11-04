@@ -1,0 +1,21 @@
+{% extends 'pannel/main.html' %} {% block title %} PROFILE {% endblock title %} {% block content %}
+<style>
+    .container-profile {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    
+    h1 {
+        align-items: center;
+    }
+</style>
+<h1>{{user.username}}</h1>
+
+<div class=container-profile>
+    <div>{% include 'pannel/topic_components.html' %}</div>
+    <div>
+        {% include 'pannel/feed_components.html' %}
+    </div>
+    <div>{% include 'pannel/activity_components.html' %}</div>
+</div>
+{% endblock content %}
